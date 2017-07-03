@@ -20,8 +20,8 @@ if (isset($_FILES['image'])) {
 	
 	
     // LEVEL 1: Simple check
-    // Check if it's an image by name
 	
+    // Check if it's an image by name
     if (!preg_match("/\.(jpe?g|png)\b/", $file_name)) {
         $errors[] = "Extension not allowed, please upload a PNG or JPEG file instead!";
     }
@@ -35,15 +35,15 @@ if (isset($_FILES['image'])) {
     if (empty($errors) == true) { // If it already has errors, then it doesn't need to run heavier scripts.
 	
         // LEVEL 2: Deeper check
-        // Check if it's an image using getimagesize
 		
+        // Check if it's an image using getimagesize
         if (!is_array(getimagesize($file_tmp))) {
             $errors[] = 'File failed the image check.';
         }
+		
         // Now with exif_imagetype, just in case.
         // Even though it is the same as getimagesize, but returns faster.
         // Using exif twice to check the type, I wonder if it's good pratice...
-		
         if (!exif_imagetype($file_tmp) && !in_array(exif_imagetype($file_tmp), $types)) {
             $errors[] = 'File is not an image.';
         }
