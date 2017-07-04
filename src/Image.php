@@ -3,7 +3,7 @@
 /**
  * Class Image
  *
- * A class for storing image data.
+ * A class for storing image details according to the input $_FILE array.
  *
  * @author Roman Emilian <roman.emilian@outlook.com>
  */
@@ -13,6 +13,11 @@ class Image
     private $tempName;
     private $fileSize;
 
+    /**
+     * Image constructor.
+     *
+     * @param array $image  $_FILE array storing the uploaded file information.
+     */
     public function __construct(array $image)
     {
         $this->realName = $image['name'];
@@ -21,7 +26,7 @@ class Image
     }
 
     /**
-     * @return string
+     * @return string   The name set by the end-user.
      */
     public function getRealName() : string
     {
@@ -29,7 +34,7 @@ class Image
     }
 
     /**
-     * @return string
+     * @return string   Temporary name set by the server.
      */
     public function getTempName() : string
     {
@@ -37,7 +42,7 @@ class Image
     }
 
     /**
-     * @return int
+     * @return int  The file size of the file.
      */
     public function getFileSize() : int
     {
