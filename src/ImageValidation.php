@@ -32,6 +32,11 @@ class ImageValidation
         $this->image = $image;
     }
 
+    /**
+     * Returns a status code from the ImageStatus enumerator based on the validity of the file's size and extension.
+     *
+     * @return int  Status code for the file validity.
+     */
     public function getFileStatus()
     {
         if (is_null($this->isExtensionValid)) {
@@ -47,6 +52,13 @@ class ImageValidation
             : ImageStatus::FileError;
     }
 
+    /**
+     * Returns a status code from the ImageStatus enumerator based on the validity of the data.
+     *
+     * The data's validity is determined by checking its mime type and checking the image size.
+     *
+     * @return int  Status code for the data validity.
+     */
     public function getDataStatus()
     {
         if (is_null($this->isImageValid)) {
