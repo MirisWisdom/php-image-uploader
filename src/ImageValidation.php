@@ -9,5 +9,10 @@
  */
 class ImageValidation
 {
-    //
+    private $image;
+
+    public function __construct(Image $image)
+    {
+        $this->image = $image;
+    }
 }
