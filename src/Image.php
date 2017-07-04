@@ -19,4 +19,28 @@ class Image
         $this->tempName = $image['tmp_name'];
         $this->fileSize = $image['size'];
     }
+
+    /**
+     * @return string
+     */
+    public function getRealName() : string
+    {
+        return $this->realName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTempName() : string
+    {
+        return $this->tempName;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFileSize() : int
+    {
+        return $this->fileSize;
+    }
 }
